@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Любовь для СКАЯ ♥</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500&display=swap');
+        
+        :root {
+            --pink-light: #fff0f6;
+            --pink-medium: #ffdeeb;
+            --pink-dark: #faa2c1;
+            --purple: #d0b7e6;
+            --text-color: #5a3a4a;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--pink-light);
+            color: var(--text-color);
+            background-image: 
+                radial-gradient(var(--pink-dark) 1px, transparent 1px),
+                radial-gradient(var(--pink-dark) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #e64980;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-top: 10px;
+        }
+        
+        .photo-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .photo-placeholder {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 20px;
+            background-color: white;
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(230, 73, 128, 0.2);
+            overflow: hidden;
+            transform: rotate(-3deg);
+            transition: all 0.3s ease;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .photo-placeholder:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .wishes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .wish-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid var(--pink-medium);
+        }
+        
+        .wish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(230, 73, 128, 0.15);
+        }
+        
+        .wish-card::before {
+            content: "♥";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--pink-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 10px rgba(230, 73, 128, 0.3);
+        }
+        
+        .wish-author {
+            font-weight: 500;
+            color: #e64980;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .wish-author::before {
+            content: "~";
+            margin-right: 5px;
+            font-size: 1.5rem;
+        }
+        
+        .music-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .note {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: float-note 10s linear infinite;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 1.2rem;
+            color: #e64980;
+            animation: float-heart 8s linear infinite;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--pink-medium);
+        }
+        
+        .final-message {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-3deg); }
+            50% { transform: translateY(-15px) rotate(-3deg); }
+            100% { transform: translateY(0px) rotate(-3deg); }
+        }
+        
+        @keyframes float-note {
+            0% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float-heart {
+            0% { 
+                transform: translateY(100vh) scale(0.8);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% { 
+                transform: translateY(-100px) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="music-elements" id="musicElements"></div>
+    
+    <div class="container">
+        <header>
+            <h1>СКАЯ</h1>
+            <div class="subtitle">Наши пожелания и поддержка для тебя</div>
+        </header>
+        
+        <div class="photo-section">
+            <div class="photo-placeholder">
+                <!-- Здесь будет фото Юли -->
+                <img src="https://sun9-60.userapi.com/s/v1/ig2/F0OExSoz9FFKMoOo-LBb9p1jo-8engPL9CMjuSkfrN9gs7DjQa2JKIGtECOzX2yw98JVaX06D_2XoxHfnBszlaM3.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,1080x1620,1280x1920,1440x2160,1707x2560&from=bu&cs=1280x0" alt="Фото СКАЯ">
+            </div>
+        </div>
+        
+        <div class="wishes-container">
+            <div class="wish-card">
+                <div class="wish-author">Марина</div>
+                <div class="wish-text">Юля, ты невероятно талантлива! Пожалуйста, никогда не сомневайся в себе. Мы все здесь, потому что верим в тебя и твою музыку. Пусть каждый твой день будет наполнен вдохновением!</div>
+            </div>
+            
+            <div class="wish-card">
+                <div class="wish-author">Алексей</div>
+                <div class="wish-text">СКАЯ, твой голос - это дар! Помни, что за тобой стоит армия фанатов, которые любят тебя и поддерживают. Иди только вперёд, не оглядывайся на сомнения!</div>
+            </div>
+            
+            <div class="wish-card">
+                <div class="wish-author">Катя</div>
+                <div class="wish-text">Юленька, ты делаешь этот мир лучше своей музыкой. Пусть никакие преграды не остановят тебя на пути к мечте. Мы всегда с тобой! ♥</div>
+            </div>
+            
+            <div class="wish-card">
+                <div class="wish-author">Артём</div>
+                <div class="wish-text">Ты - звезда, которая только начинает сиять ярче. Не останавливайся, мы верим в тебя! Каждая твоя песня - это шедевр.</div>
+            </div>
+            
+            <div class="wish-card">
+                <div class="wish-author">Ольга</div>
+                <div class="wish-text">Дорогая СКАЯ, пусть твой путь будет усыпан розами, а невзгоды обходят стороной. Ты заслуживаешь всего самого лучшего!</div>
+            </div>
+            
+            <div class="wish-card">
+                <div class="wish-author">Сергей</div>
+                <div class="wish-text">Юля, твоя музыка спасла меня в трудные времена. Спасибо тебе за это! Продолжай творить, мы всегда будем поддерживать тебя.</div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="final-message">
+                Дорогая Юля, СКАЯ, наша любимая певица! Этот сайт создан с любовью, чтобы напомнить тебе, как много людей верят в тебя и твой талант. Пусть эти пожелания согревают твоё сердце в моменты, когда силы на исходе. Ты - невероятная, уникальная, прекрасная! Мир ждёт твоего творчества, а мы будем рядом на каждом этапе этого удивительного пути. Любим тебя! ♥♥♥
+            </div>
+            <div style="font-size: 2rem; color: #e64980;">
+                ♥ ♫ ♥ ~ Твои фанаты ~ ♥ ♫ ♥
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Создаем музыкальные элементы и сердечки
+        const notes = ['♪', '♫', '♩', '♬'];
+        const musicElements = document.getElementById('musicElements');
+        
+        function createMusicElement() {
+            const element = document.createElement('div');
+            const isNote = Math.random() > 0.5;
+            
+            if (isNote) {
+                element.className = 'note';
+                element.textContent = notes[Math.floor(Math.random() * notes.length)];
+            } else {
+                element.className = 'heart';
+                element.textContent = '♥';
+            }
+            
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.animationDuration = (5 + Math.random() * 10) + 's';
+            element.style.animationDelay = Math.random() * 5 + 's';
+            
+            musicElements.appendChild(element);
+            
+            // Удаляем элемент после завершения анимации
+            setTimeout(() => {
+                element.remove();
+            }, 15000);
+        }
+        
+        // Создаем несколько элементов сразу
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createMusicElement, i * 300);
+        }
+        
+        // Продолжаем создавать элементы каждые 0.5 секунды
+        setInterval(createMusicElement, 500);
+    </script>
+</body>
+</html>
